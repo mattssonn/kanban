@@ -6,10 +6,11 @@ function App() {
   return (
     <div className="App">
       <div className="navbar">navbar</div>
-      <div style={{ display: "flex" }}>
+
+      <main>
         <Sidebar />
         <Board />
-      </div>
+      </main>
     </div>
   );
 }
