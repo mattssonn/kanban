@@ -1,0 +1,13 @@
+.sidebar {
+  background-color: var(--bg-gray);
+  min-height: 100vh;
+  max-width: 280px;
+
+  p {
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--text-gray);
+  }
+}
