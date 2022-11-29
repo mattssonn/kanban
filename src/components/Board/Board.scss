@@ -3,17 +3,41 @@
   padding: 24px 24px;
   display: grid;
   grid-gap: 40px;
-  grid-template-columns: repeat(3, 280px);
-  justify-content: center;
-  //   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 800px) {
   .board {
     grid-template-columns: 1fr;
   }
 }
 
 .board-column {
-  border: 1px solid pink;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.board-title {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.board-title-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.Todo {
+  background-color: #49c4e5;
+}
+
+.Doing {
+  background-color: #8471f2;
+}
+
+.Done {
+  background-color: #67e2ae;
 }

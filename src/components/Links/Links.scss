@@ -1,7 +1,7 @@
 .links {
   li {
     padding: 15px 30px;
-    border-radius: 0px 15px 15px 0px;
+    border-radius: 0 15px 15px 0;
     width: 85%;
     font-weight: bold;
     font-size: 14px;
@@ -9,12 +9,10 @@
     cursor: pointer;
     color: var(--text-gray);
     display: flex;
-    align-items: center;
-    gap: 5px;
-
+    gap: 10px;
     &:hover,
     &.active {
-      background: var(--text);
+      background: #f4f3f6;
       color: var(--primary);
     }
 

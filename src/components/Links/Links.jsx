@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Links.scss";
 import BoardIcon from "../../assets/icon/IconBoard";
+import { BoardContext } from "../../context/BoardContext";
 
 export default function Links() {
+  const { projects } = useContext(BoardContext);
+
   return (
     <ul className="links">
-      <li>
-        <BoardIcon />
-        Place board
-      </li>
-      <li className="active">
-        <BoardIcon />
-        Abc project
-      </li>
+      {projects.map((project, index) => {
+        return (
+          <li key={index}>
+            <BoardIcon />
+            {project.title}
+          </li>
+        );
+      })}
     </ul>
   );
+}
+
+{
+  /* <li>
+<BoardIcon />
+Place board
+</li>
+<li className="active">
+<BoardIcon />
+Abc project
+</li> */
 }
