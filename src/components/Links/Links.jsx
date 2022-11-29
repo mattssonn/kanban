@@ -19,14 +19,3 @@ export default function Links() {
     </ul>
   );
 }
-
-{
-  /* <li>
-<BoardIcon />
-Place board
-</li>
-<li className="active">
-<BoardIcon />
-Abc project
-</li> */
-}
