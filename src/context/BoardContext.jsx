@@ -6,11 +6,17 @@ export const BoardContext = createContext();
 
 const BoardContextProvider = ({ children }) => {
   const [projects, setProjects] = useState(projectsData);
-  const [currentProject, setcurrentProject] = useState(projects[0]);
+  const [projectIndex, setProjectIndex] = useState(0);
+  const currentProject = projects[projectIndex];
+
+  const changeBoard = (index) => {
+    setProjectIndex(index);
+  };
 
   const value = {
     projects,
     currentProject,
+    changeBoard,
   };
 
   return (
