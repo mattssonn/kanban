@@ -9,15 +9,63 @@
     cursor: pointer;
     color: var(--text-gray);
     display: flex;
-    gap: 10px;
+    gap: 5px;
     &:hover,
     &.active {
       background: #f4f3f6;
       color: var(--primary);
+      svg {
+        fill: var(--primary);
+      }
     }
 
     svg {
       fill: var(--text-gray);
     }
+
+    &.new-project {
+      color: var(--primary);
+      text-align: center;
+
+      svg {
+        fill: var(--primary);
+      }
+
+      &:hover {
+        background-color: var(--primary);
+        color: #f4f3f6;
+
+        svg {
+          fill: #f4f3f6;
+        }
+      }
+    }
+  }
+}
+
+.new-project-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 25px;
+
+  input {
+    padding: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #373846;
+    outline: none;
+    color: var(--text-lines);
+  }
+  button {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--text-lines);
+    cursor: pointer;
   }
 }

@@ -12,3 +12,9 @@
     color: var(--text-gray);
   }
 }
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    display: none;
+  }
+}
