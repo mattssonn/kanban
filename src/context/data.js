@@ -153,12 +153,6 @@ export const projectsData = [
             description: "",
             tasks: ["Fix types at the same time"],
           },
-          {
-            id: uuidv4(),
-            title: "i18n english",
-            description: "Setup json and NPM",
-            tasks: ["Fix types at the same time"],
-          },
         ],
       },
     ],

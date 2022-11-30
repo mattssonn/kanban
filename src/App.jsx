@@ -17,7 +17,7 @@ function App() {
         <Sidebar />
         <Board />
       </main>
-      <Dropdown dropdown={isOpen} />
+      <Dropdown dropdown={isOpen} toggleDropdown={setisOpen} />
     </div>
   );
 }
