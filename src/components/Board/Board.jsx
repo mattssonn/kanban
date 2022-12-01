@@ -3,6 +3,7 @@ import "./Board.scss";
 import Ticket from "../Ticket/Ticket";
 import { BoardContext } from "../../context/BoardContext";
 import { useContext } from "react";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 export default function Board() {
   const { currentProject } = useContext(BoardContext);

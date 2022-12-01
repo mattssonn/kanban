@@ -1,0 +1,87 @@
+.modal {
+  padding: 20px;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  inset: 0px;
+  background: #0006;
+  display: grid;
+  place-items: center;
+  overflow: scroll;
+  color: aliceblue;
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  button {
+    background-color: var(--primary);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(1.1);
+    }
+    &:active {
+      filter: brightness(0.9);
+    }
+  }
+
+  &-card {
+    width: min(480px, 100%);
+    position: relative;
+    padding: 32px;
+    border-radius: 6px;
+    background: var(--bg-gray);
+
+    h3 {
+      margin-bottom: 24px;
+    }
+  }
+
+  &-input-group {
+    margin-bottom: 24px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      resize: none;
+      background-color: transparent;
+      padding: 8px 16px;
+      border: 1px solid var(--bg-lines);
+      border-radius: 6px;
+      outline: none;
+      color: var(--text);
+      display: block;
+
+      &::placeholder {
+        color: var(--bg-lines);
+      }
+    }
+  }
+  &-input-row {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  .close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
