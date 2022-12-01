@@ -24,6 +24,10 @@
   position: relative;
 }
 
+.dropdown-box:hover {
+  filter: brightness(1.1);
+}
+
 .dropdown-close-btn {
   background-color: transparent;
   border: none;
