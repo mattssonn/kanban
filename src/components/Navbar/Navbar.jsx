@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import "./Navbar.scss";
 import IconLogo from "../../assets/icon/IconLogo";
 import { BoardContext } from "../../context/BoardContext";
-import UpLogo from "../../assets/icon-chevron-up.svg";
+import upLogo from "../../assets/icon-chevron-up.svg";
+import downLogo from "../../assets/icon-chevron-down.svg";
 
-function Navbar({ setShowAddTicket }) {
+export default function Navbar({ setShowAddTicket, setIsOpen, isOpen }) {
   const { currentProject } = useContext(BoardContext);
 
   return (
@@ -13,15 +14,15 @@ function Navbar({ setShowAddTicket }) {
         <IconLogo />
         <h2>Kanban</h2>
       </div>
-      <div className="navbar-boarder">
-        <h3
+      <div className="navbar-board">
+        <h2>{currentProject.title}</h2>
+        <img
+          src={isOpen ? downLogo : upLogo}
+          alt=""
           onClick={() => {
             setIsOpen((prev) => !prev);
           }}
-        >
-          {currentProject.title}
-        </h3>
-        <img src={UpLogo} alt="" />
+        />
       </div>
       <div className="navbar-add-ticket">
         <button
@@ -35,5 +36,3 @@ function Navbar({ setShowAddTicket }) {
     </div>
   );
 }
-
-export default Navbar;

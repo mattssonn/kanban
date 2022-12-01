@@ -18,7 +18,6 @@
     &:focus {
       border-color: var(--primary);
     }
-
     &::placeholder {
       color: var(--bg-lines);
     }
@@ -30,9 +29,8 @@
     border: none;
     padding: 10px 0;
     width: 100%;
-    margin: 10px 0;
-    cursor: pointer;
     border-radius: 6px;
+    cursor: pointer;
 
     &:hover {
       filter: brightness(1.1);

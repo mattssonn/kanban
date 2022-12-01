@@ -1,108 +1,63 @@
-import React, { useState } from "react";
-import "./CreateTicket.scss";
-import crossIcon from "../../assets/icon-cross.svg";
-// import { useProject } from "../../context/ProjectContext";
+import React, { useState, useContext } from "react";
+import "./Createticket.scss";
+import { BoardContext } from "../../context/BoardContext";
 import { v4 as uuidv4 } from "uuid";
 
-export default function CreateTicket({ setIsOpen }) {
-  const { addTicket } = useProject();
+export default function Createticket() {
+  const { createTicket } = useContext(BoardContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [tasks, setTasks] = useState([""]);
-
-  function validate() {
-    let isValid = true;
-    if (title == "" && description == "") {
-      isValid = false;
-    }
-    return isValid;
-  }
-
-  function createTicket() {
-    if (validate()) {
-      const ticket = {
-        title: title,
-        id: uuidv4(),
-        description: description,
-        tasks: tasks[0] == "" ? [] : tasks,
-      };
-      addTicket(ticket);
-      console.log(ticket);
-      setIsOpen((prev) => !prev);
-    }
-  }
+  const [subTask, setSubtask] = useState("");
 
   return (
-    <div className="modal">
-      <div className="modal-card">
-        <div
-          className="close-btn"
-          onClick={() => {
-            setIsOpen((prev) => !prev);
-          }}
-        >
-          <img src={crossIcon} alt="" />
-        </div>
-        <h3 className="heading-l">Add New Task</h3>
-        <div className="modal-input-group">
-          <label htmlFor="title" className="body-m">
-            Title
-          </label>
-          <input
-            className="body-l"
-            placeholder="e.g Take coffee break"
-            type="text"
-            name="title"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
+    <div className="create-ticket">
+      <h3 className="heading-l">Add New Title {title}</h3>
+      <div>
+        <label htmlFor="" className="body-m">
+          Title
+        </label>
+        <input
+          placeholder="e.g take a coffebreak"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-        <div className="modal-input-group">
-          <label htmlFor="description" className="body-m">
-            Description
-          </label>
-          <textarea
-            className="body-l"
-            placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
-            name="description"
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
+        <label htmlFor="" className="body-m">
+          Description
+        </label>
+        <input
+          placeholder="e.g eat pasta carbonara and drink wine "
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
 
-        <div className="modal-input-group">
-          <label className="body-m">Subtasks</label>
-          {tasks.map((task, index) => (
-            <div key={index} className="modal-input-row">
-              <input
-                className="body-l"
-                placeholder="e.g Make break"
-                type="text"
-                name="subtasks"
-                value={task}
-                onChange={(e) => {
-                  tasks[index] = e.target.value;
-                  setTasks([...tasks]);
-                }}
-              />
-            </div>
-          ))}
-          <div className="btn-container">
-            <button
-              className="btn btn-small btn-white btn-wide"
-              onClick={() => {
-                setTasks(tasks.concat(""));
-              }}
-            >
-              + Add New Task
-            </button>
-            <button onClick={createTicket}>Create Task</button>
-          </div>
-        </div>
+        <label htmlFor="" className="body-m">
+          Subtask
+        </label>
+        <input
+          placeholder="e.g do a backflip"
+          type="text"
+          value={subTask}
+          onChange={(e) => setSubtask(e.target.value)}
+        />
       </div>
+      <button
+        onClick={() => {
+          createTicket({
+            id: uuidv4(),
+            title: title,
+            description: description,
+            tasks: [subTask],
+          });
+          setTitle("");
+          setDescription("");
+          setSubtask("");
+        }}
+      >
+        Create Task
+      </button>
     </div>
   );
 }
