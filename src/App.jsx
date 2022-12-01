@@ -6,11 +6,12 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Ticket from "./components/Ticket/Ticket";
 import CreateTicket from "./components/CreateTicket/CreateTicket";
 import { useState } from "react";
+import Links from "./components/Links/Links";
 
 function App() {
   // state for dropdown
   const [showAddTicket, setShowAddTicket] = useState(false);
-  const [isOpen, setisOpen] = useState();
+  const [isOpen, setIsOpen] = useState();
 
   return (
     <div className="App">
