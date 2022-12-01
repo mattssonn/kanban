@@ -5,9 +5,7 @@ import "./index.scss";
 import BoardContext from "./context/BoardContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BoardContext>
-      <App />
-    </BoardContext>
-  </React.StrictMode>
+  <BoardContext>
+    <App />
+  </BoardContext>
 );

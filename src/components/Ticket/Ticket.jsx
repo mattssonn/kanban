@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { SassMap } from "sass";
 import "./Ticket.scss";
 
 export default function Ticket({ data, provided, snapshot }) {

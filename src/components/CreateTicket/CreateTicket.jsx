@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Modal.scss";
+import "./CreateTicket.scss";
 import crossIcon from "../../assets/icon-cross.svg";
-import { useProject } from "../../context/ProjectContext";
+// import { useProject } from "../../context/ProjectContext";
 import { v4 as uuidv4 } from "uuid";
 
 export default function CreateTicket({ setIsOpen }) {
