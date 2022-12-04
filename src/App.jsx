@@ -7,11 +7,12 @@ import Links from "./components/Links/Links";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { createContext } from "react";
+import ReactSwitch from "react-switch";
 
 export const ThemeContext = createContext(null);
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   const [showAddTicket, setShowAddTicket] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id="dark">
+      <div className="App" id={theme}>
         <Navbar
           setShowAddTicket={setShowAddTicket}
           setIsOpen={setIsOpen}
@@ -32,6 +33,10 @@ function App() {
           <Sidebar />
           <Board />
         </main>
+        <div className="switch">
+          <label>{theme === "light" ? "Light Mode" : "Dark Mode"} </label>
+          <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+        </div>
         <Dropdown dropdown={showAddTicket} toggleDropdown={setShowAddTicket}>
           <Createticket />
         </Dropdown>
