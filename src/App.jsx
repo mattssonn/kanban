@@ -21,6 +21,8 @@ function App() {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"));
   };
 
+  document.documentElement.classList.toggle("light");
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
@@ -37,6 +39,7 @@ function App() {
           <label>{theme === "light" ? "Light Mode" : "Dark Mode"} </label>
           <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
         </div>
+
         <Dropdown dropdown={showAddTicket} toggleDropdown={setShowAddTicket}>
           <Createticket />
         </Dropdown>

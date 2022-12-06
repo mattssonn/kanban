@@ -56,8 +56,8 @@ export default function Board() {
       <DragDropContext onDragEnd={(e) => dragEnd(e)}>
         {Object.entries(currentProject.board).map(([id, column], index) => {
           return (
-            <div key={index} id={index}>
-              <Droppable key={index} droppableId={id}>
+            <div key={id} id={index}>
+              <Droppable key={id} droppableId={id}>
                 {(provided, snapshot) => {
                   return (
                     <div
