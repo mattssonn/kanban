@@ -9,22 +9,17 @@ export default function Board() {
   const { currentProject, changeCurrentBoard } = useContext(BoardContext);
 
   function dragEnd(result) {
-    // Safety for dragging out of column
     if (!result.destination) return;
-    // Context
     const { destination, source } = result;
 
     if (source.draggableId !== destination.draggableId) {
-      //Columns
       const sourceColumn = currentProject.board[source.droppableId];
       const destinationColumn = currentProject.board[destination.droppableId];
-      // Items in each column
       const sourceItems = [...sourceColumn.items];
       const destinationItems = [...destinationColumn.items];
-      // Removing item, and adding item to destination
       const [removed] = sourceItems.splice(source.index, 1);
       destinationItems.splice(destination.index, 0, removed);
-      // Change data to new context information
+
       changeCurrentBoard({
         ...currentProject.board,
         [destination.droppableId]: {
@@ -91,6 +86,7 @@ export default function Board() {
                           </Draggable>
                         );
                       })}
+                      {provided.placeholder}
                     </div>
                   );
                 }}
@@ -101,22 +97,4 @@ export default function Board() {
       </DragDropContext>
     </div>
   );
-}
-
-{
-  /* <div className="board">
-      {currentProject.board.map((column, index) => {
-        return (
-          <div className="board-column" key={index}>
-            <div className="board-title">
-              <div className={`board-title-icon Todo ${column.name}`}></div>
-              <h4 className="heading-s">{column.name}</h4>
-            </div>
-            {column.tickets.map((ticket) => {
-              return <Ticket data={ticket} />;
-            })}
-          </div>
-        );
-      })}
-    </div> */
 }

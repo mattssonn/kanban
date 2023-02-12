@@ -35,10 +35,10 @@ function App() {
           <Sidebar />
           <Board />
         </main>
-        <div className="switch">
+        {/* <div className="switch">
           <label>{theme === "light" ? "Light Mode" : "Dark Mode"} </label>
           <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
-        </div>
+        </div> */}
 
         <Dropdown dropdown={showAddTicket} toggleDropdown={setShowAddTicket}>
           <Createticket />

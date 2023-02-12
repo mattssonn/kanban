@@ -2,6 +2,10 @@ main {
   display: flex;
 }
 
+.App {
+  overflow: hidden;
+}
+
 .switch {
   display: flex;
   width: 100vw;
